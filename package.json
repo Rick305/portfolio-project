@@ -1,0 +1,16 @@
+{
+  "name": "portfolio-project",
+  "source": "src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "parcel": "^2.6.0"
+  },
+  "dependencies": {
+    "gsap": "^3.10.4",
+    "sass": "^1.52.3"
+  }
+}

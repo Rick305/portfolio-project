@@ -1,0 +1,46 @@
+
+.banner{
+    // filter: url(https://grainy-gradients.vercel.app/noise.svg);
+    height: 100vh; 
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-color: $primaryColorBlue;
+    padding: 50px;
+    @media  (max-width: $breakpointLaptop)  {
+        flex-direction: column-reverse;
+        justify-content: space-around;
+        padding: 99px 47px 11px 20px;
+        align-items: flex-start;
+  }
+    p{
+        color: $textColorWhite;
+        font-size: $fontsizeTitle;
+        font-weight: 800;
+        letter-spacing: 3px;
+        font-family: $fontTitle;
+        // animation: fadeinnav 3s  2s both;
+        @media (max-width: $breakpointMobile) {
+            // align-items: flex-start;
+            letter-spacing: normal;
+        }
+    }
+    .banner-img{
+        max-width: 500px;
+        overflow: hidden;
+        @media(max-width: $breakpointMobile){
+            height: auto;
+        }
+    }
+    img{
+        width: 100%;
+        // animation: fadeinnav 3.5s 2s both;
+        // filter: grayscale(100%);
+        // filter: url('https://grainy-gradients.vercel.app/noise.svg');
+    }
+}
+
+
+
+
+

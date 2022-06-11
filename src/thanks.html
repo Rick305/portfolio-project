@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+   
+
+    <title>Rick Lugtenberg</title>
+
+    <style>
+        body {
+            background-color: rgb(73, 65, 229);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'PT Sans', sans-serif;
+        }
+        h1 {
+            color: white;
+            width: 100%;
+            text-align: center;
+            cursor: default;
+            margin: 0;
+        }
+        p {
+            color: white;
+            cursor: default;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 18px;
+            border: none;
+            background: rgb(241, 120, 182);
+            color: white;
+            border-radius: 8px;
+            width: 100%;
+        }
+        button:hover{
+            color: black;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Danke 😃</h1>
+        <p>Ich melde mich sobald wie möglich bei dir.</p>
+        <button>Zurück</button>
+    </div>
+</body>
+
+<script>
+    const thanks = ['Dankje', 'Thanks', 'Merci', 'Danke', 'Gracias', 'Obrigado'];
+    let notTwice = 1;
+    document.querySelector(".wrapper").addEventListener('mouseenter', () =>{
+        sayHi()
+    })
+
+    document.querySelector('button').addEventListener('click', () =>{
+        location.href = 'index.html';
+    })
+
+    function sayHi(){
+        
+        let randomNumber = Math.floor(Math.random() * 6);
+        if(randomNumber != notTwice){
+            document.querySelector("h1").innerHTML = `${thanks[randomNumber]} 😃`;
+            notTwice = randomNumber;
+        }else if(randomNumber == 6) {
+            document.querySelector("h1").innerHTML = `${thanks[0]} 😃`;
+            notTwice = 0;
+        } else{
+            document.querySelector("h1").innerHTML = `${thanks[randomNumber + 1]} 😃`;
+            notTwice = randomNumber;
+        }
+    }
+</script>
+</html>

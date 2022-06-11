@@ -1,0 +1,206 @@
+.contact{
+    background-color: $primaryColorBlue;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    .contact-one{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        h3{
+            font-size: $fontsizeTitle;
+            margin: auto;
+            transform: translateX(10%);
+            cursor: pointer;
+            font-family: $fontTitle;
+            @media (max-width: $breakpointTablet) {
+                transform: translateX(0%);
+            }
+        }
+        
+        #first-arrow,
+        #second-arrow,
+        #third-arrow{
+            visibility: hidden;
+            display: inline-block;
+            @media (max-width: $breakpointTablet) {
+                display: none;
+            }
+        }
+        
+        #second-arrow{
+            opacity: 0.6;
+        }
+        #third-arrow{
+            opacity: 0.4;
+        }
+    }
+    .contact-two{
+        width: 100vw;
+        position: relative;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        transform: translateX(100%);
+        background: linear-gradient(267deg, $primaryColorBlue 0%, $primaryColorPink 100%);
+        @media (max-width: $breakpointTablet) {
+            background: none;
+        }
+        form{
+            position: relative;
+            max-width: 700px;
+            background-color: #fff;
+            padding: 5rem;
+            border-radius: 8px;
+            color: $primaryColorBlue;
+            margin: auto;
+            top: 50%;
+            transform: translateY(-50%);
+            @media (max-width: $breakpointTablet) {
+                padding: 1rem;
+                padding-top: 3rem;
+                margin: 3rem;
+                top: 45%;
+                background-color: transparent;
+            }
+            p{
+                position: absolute;
+                top: 45%;
+                left: -3.5rem;
+                font-size: 4rem;
+                transform: rotate(90deg);
+                cursor: pointer;
+                @media (max-width: $breakpointTablet){
+                    font-size: 3rem;
+                    top: -25px;
+                    left: 20px;
+                    color: #fff;
+                }
+            }
+        }
+        
+        
+        
+        .form-row .form-field:first-child {
+            margin-right: 5.5rem;
+            @media (max-width: $breakpointTablet) {
+                margin-right: 0;
+            }
+        }
+        
+        .form-row{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            @media (max-width: $breakpointTablet) {
+                flex-direction: column;
+            }
+        }
+        
+        
+        
+        .form-field{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            flex-grow: 1;
+            margin-bottom: 2.5rem;
+        }
+        
+        label{
+            text-transform: uppercase;
+            @media (max-width: $breakpointTablet) {
+                display: none;
+            }
+        }
+        
+        input,
+        #message_input{
+            color: black;
+            background: inherit;
+            resize: none;
+            padding: 10px;
+            padding-left: 0;
+            font-family: inherit;
+            font-size: 1rem;
+            border:none;
+            border-bottom: black solid 1px;
+            @media (max-width: $breakpointTablet) {
+                color: #fff;
+                border-bottom: #fff solid 1px;
+            }
+        }
+        
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: $colorGrey;
+            opacity: 1; /* Firefox */
+            @media (max-width: $breakpointTablet) {
+                color: #fff;
+            }
+          }
+          
+          :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: $colorGrey;
+          }
+          
+          ::-ms-input-placeholder { /* Microsoft Edge */
+            color: $colorGrey;
+          }
+        
+        input:focus, #message_input:focus{
+            outline: none;
+        }
+        
+        
+        #submit{
+            border: none;
+            position: relative;
+            color: white;
+            letter-spacing: 2px;
+            background-color: $primaryColorPink;
+            border-radius: 3.75rem;
+            height: 3.75rem;
+            padding: 0 1.875rem 0 1.875rem;
+            display: flex;
+            align-items: center;
+            &:hover{
+                background-color: white;
+                color: $primaryColorBlue;
+                border: .2rem solid $primaryColorBlue;
+                padding: 0 1.675rem;
+                cursor: pointer;
+            }
+        }
+            
+    }
+}
+
+
+
+@keyframes changeBG{
+    0% {
+         background-color: $primaryColorBlue; 
+    }
+
+    100% {
+         background-color: $primaryColorPink;
+    }
+}
+
+@keyframes reverseBG{
+    0% {
+        background-color: $primaryColorPink;
+    }
+
+    100% {
+        background-color: $primaryColorBlue;
+    }
+}
