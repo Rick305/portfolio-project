@@ -47,6 +47,10 @@ main{
             color: white;
             font-family: $fontTitle;
             font-size: 8rem;
+            transform: translateY(100%);
+            @media (max-width: $breakpointTablet) {
+                font-size: 4rem;
+            }
         }
     }
     .field-two{

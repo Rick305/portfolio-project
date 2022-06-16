@@ -35,7 +35,7 @@
                 }
                 h3{
                     font-family: $fontTitle;
-                    font-size: $fontsizeLarge;
+                    font-size: $fontsizeTitleProject;
                 }
             }
             .project-title-arrow{
@@ -50,185 +50,91 @@
             @media  (max-width: $breakpointTablet) {
                 flex-direction: column;
             }
-        }
-    }
-}
-
-.carousel-wrapper{
-    // width: 65%;
-    height: 500px;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items:center;
-    margin-bottom: 64px;
-    @media (max-width: $breakpointTablet) {
-        width: 100%;
-        margin-bottom: 30px;
-    }
-}
-
-.carousel-wrapper * {
-    box-sizing: border-box;
-  }
-
-.carousel {
-    transform-style: preserve-3d;
-} 
-
-.carousel-photo{
-    opacity: 0;
-    position: absolute;
-    top:0;
-    width: 100%;
-    margin: auto;
-    padding: 0 3rem;
-    z-index: 100;
-    transition: transform .5s, opacity .5s, z-index .5s;
-}
-
-.carousel-photo.initial,
-.carousel-photo.active {
-  opacity: 1;
-  position: relative;
-  z-index: 900;
-}
-
-/* .carousel-photo.prev,
-.carousel-photo.next {
-  z-index: 800;
-} */
-.carousel-photo.prev {
-  transform: translateX(-100%); /* Move 'prev' item to the left */
-}
-.carousel-photo.next {
-  transform: translateX(100%); /* Move 'next' item to the right */
-}
-
-.carousel-button-prev,
-.carousel-button-next {
-  position: absolute;
-  top:50%;
-  width: 3rem;
-  height: 100%;
-  /* background-color: #8ab7be; */
-  transform: translateY(-50%);
-  cursor: pointer; 
-  z-index: 1001; /* Sit on top of everything */
-  /* border: 1px solid black; */
-}
-.carousel-button-prev {
-  left:0;
-}
-.carousel-button-next {
-  right:0;
-}
-.carousel-button-prev::after,
-.carousel-button-next::after {
-  content: " ";
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  top: 50%;
-  left: 54%;
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
-  transform: translate(-50%, -50%) rotate(135deg);
-}
-.carousel-button-next::after {
-  left: 47%;
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
-
-.slider{
-    width: 65%;
-}
-
-.project-img{
-    width: 100%; 
-}
-
-.project-info{
-    width: 50%;
-    padding: 0 50px;
-    color: black;
-    @media  (max-width: $breakpointTablet) {
-        width: 100%;
-        padding: 0;
-    }
-    h4{
-        font-size: $fontsizeSubTitle;
-        margin-bottom: 1rem;
-    }
-    .links-to-project{
-        display: flex;
-        justify-content: space-between;
-        margin-top: 30px;
-        margin-bottom: 4rem;
-        @media (max-width: $breakpointMobile) {
-            margin-bottom: 30px;
-        }
-        .project-info-bttn{
-            position: relative;
-            width: 45%;
-            a{
-                display: block;
+            .teaser-img img{
                 width: 100%;
-                height: 100%;
-                text-align: center;
-                background: #ffeb3b;
-                padding: 15px;
-                z-index: 3;
-                position: relative;
-                transition: transform .3s;
-                text-decoration: none;
-            color: inherit;
-                &::after{
-                    content: " ";
+                height: auto;
+            }
+            .project-info{
+                width: 50%;
+                // padding: 0 50px;
+                padding-top: 2rem;
+                color: black;
+                @media  (max-width: $breakpointTablet) {
                     width: 100%;
-                    height: 15px;
-                    background: white;
-                    z-index: 30;
-                    position: absolute;
-                    top: -15px;
-                    left: 0;
+                    // padding: 0;
                 }
-                &::before{
-                    content: " ";
-                    width: 15px;
-                    height: 100%;
-                    background: white;
-                    z-index: 30;
-                    position: absolute;
-                    top: 0px;
-                    right: -15px;
+                h4{
+                    font-size: $fontsizeSubTitle;
+                    margin-bottom: 1rem;
+                }
+                .links-to-project{
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 30px;
+                    margin-bottom: 4rem;
+                    @media (max-width: $breakpointMobile) {
+                        margin-bottom: 30px;
+                    }
+                    .project-info-bttn{
+                        position: relative;
+                        width: 45%;
+                        a{
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            text-align: center;
+                            background: #ffeb3b;
+                            padding: 15px;
+                            z-index: 3;
+                            position: relative;
+                            transition: transform .3s;
+                            text-decoration: none;
+                        color: inherit;
+                            &::after{
+                                content: " ";
+                                width: 100%;
+                                height: 15px;
+                                background: white;
+                                z-index: 30;
+                                position: absolute;
+                                top: -15px;
+                                left: 0;
+                            }
+                            &::before{
+                                content: " ";
+                                width: 15px;
+                                height: 100%;
+                                background: white;
+                                z-index: 30;
+                                position: absolute;
+                                top: 0px;
+                                right: -15px;
+                            }
+                        }
+                        .project-info-bttn-left{
+                            position: absolute;
+                            top: -6px;
+                            transform: skew(0deg, -45deg);
+                            background-color: #ebc721;
+                            width: 15px;
+                            height: 98.5%;
+                        }
+                        .project-info-bttn-bottom{
+                            position: absolute;
+                            right: -8px;
+                            bottom: 0px;
+                            transform: skew(-45deg, 0deg);
+                            background-color: #d7b129;
+                            width: 100%;
+                            height: 15px;
+                        }
+                        a:hover {
+                            transform: translate(15px, -14px);
+                            transition: transform .3s;
+                         } 
+                    }    
                 }
             }
-            .project-info-bttn-left{
-                position: absolute;
-                top: -6px;
-                transform: skew(0deg, -45deg);
-                background-color: #ebc721;
-                width: 15px;
-                height: 98.5%;
-            }
-            .project-info-bttn-bottom{
-                position: absolute;
-                right: -8px;
-                bottom: 0px;
-                transform: skew(-45deg, 0deg);
-                background-color: #d7b129;
-                width: 100%;
-                height: 15px;
-            }
-            a:hover {
-                transform: translate(15px, -14px);
-                transition: transform .3s;
-             } 
-        }    
+        }
     }
 }
-
-
-
-

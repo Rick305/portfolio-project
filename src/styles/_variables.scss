@@ -10,10 +10,11 @@ $fontText: 'PT Sans', sans-serif;
 $fontRoboto: 'Roboto', sans-serif;
 
 $fontsizeLarge: calc(64px + (150 - 64) * ((100vw - 300px) / (1600 - 300)));
+$fontsizeTitleProject: calc(40px + (150 - 40) * ((100vw - 300px) / (1600 - 300)));
 $fontsizeTitle: calc(35px + (78 - 35) * ((100vw - 300px) / (1600 - 300)));
 $fontsizeSubTitle: calc(24px + (34 - 24) * ((100vw - 300px) / (1600 - 300)));
 
 $breakpointMobile: 480px;
-$breakpointTablet: 820px;
+$breakpointTablet: 819px;
 $breakpointLaptop: 1024px;
 $breakpointDesktop: 1200px;

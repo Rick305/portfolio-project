@@ -14,12 +14,13 @@
         align-items: flex-start;
   }
     p{
-        color: $textColorWhite;
-        font-size: $fontsizeTitle;
-        font-weight: 800;
-        letter-spacing: 3px;
-        font-family: $fontTitle;
-        // animation: fadeinnav 3s  2s both;
+        text-shadow: -5px 4px 0px #f278b6cc;
+        font-size: calc(35px + (100 - 35) * ((100vw - 300px) / (1600 - 300)));
+        font-weight: 900;
+        line-height: 150px;
+        letter-spacing: 10px;
+        font-family: system-ui;
+        animation: fadeinnav 1s  4s both;
         @media (max-width: $breakpointMobile) {
             // align-items: flex-start;
             letter-spacing: normal;
@@ -34,7 +35,7 @@
     }
     img{
         width: 100%;
-        // animation: fadeinnav 3.5s 2s both;
+        animation: fadeinnav 1s 4s both;
         // filter: grayscale(100%);
         // filter: url('https://grainy-gradients.vercel.app/noise.svg');
     }

@@ -3,7 +3,6 @@
 // =====================
 // import { gsap, ScrollTrigger, MotionPathPlugin } from "gsap";
 
-
 const init = () => {
     gsap.to(".field-one", {
     duration: .5, 
@@ -13,12 +12,12 @@ const init = () => {
     }
   ) 
   
-  gsap.from(".start-title", {
+  gsap.to(".start-title", {
     delay: 1.3,
-    duration: .5,
-    yPercent: 100,
+    duration: 1,
+    y: 0,
     ease: "power4"
-  });
+  })
   
   gsap.to(".field-one", {
     duration: .5, 
@@ -36,12 +35,12 @@ const init = () => {
   
   gsap.to(".field-two", {
     delay: 2.8, 
-    duration: .5,
+    duration: 1,
     clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
   })
   gsap.to(".start", {
     delay: 2.8, 
-    duration: .5,
+    duration: 1,
     height: "0vh"
   })
   }
@@ -90,7 +89,8 @@ const init = () => {
   let toggleColorHeader = false;
   
   function changeColorNavbar () {
-    toggleColorHeader = !toggleColorHeader;
+    toggleColorHeader = !toggleColorHeader
+  
         if(toggleColorHeader){
           logo.style.color = 'black';
           balk.style.backgroundColor = 'black';
@@ -110,18 +110,24 @@ const init = () => {
   
   gsap.registerPlugin(ScrollTrigger);
   
-  setTimeout(() => {
+ 
     gsap.to("nav", {
-      scrollTrigger: {
-        trigger: ".section-project",
-        start: "-50px top",
-        end: `${sectionProject.offsetHeight + 120}px top`,
-        onToggle: () => changeColorNavbar(),
-        // markers: true
-      }
-    })
+        scrollTrigger: {
+          trigger: ".section-project",
+          start: "-50px top",
+          endTrigger: ".contact",
+          end: `-50px top`,
+          // end: `${sectionProject.offsetHeight + 120}px top`,
+          onToggle: () => changeColorNavbar(),
+          // markers: true
+          }
+      })
+
+
+  setTimeout(() => {
+    ScrollTrigger.refresh();
   }, 5000)
-  
+
   // =====================
   // Hamburger menu
   // =====================
@@ -202,7 +208,7 @@ const init = () => {
   
   gsap.registerPlugin(MotionPathPlugin);
   
-  setTimeout(() => {
+
     gsap.to(".circle-one",
   {duration: 5,
     scrollTrigger: {
@@ -217,7 +223,7 @@ const init = () => {
       align: ".sun-path",
       alignOrigin: [0.5, 0.5],}
   });
-  },5000);
+ 
   
   // =====================
   // Arrow Project to show details
@@ -241,6 +247,9 @@ const init = () => {
       hideDetails(id)
     }
     toggleDetails[id] = !toggleDetails[id]
+    setTimeout(() =>{
+      ScrollTrigger.refresh() //Because size of .section-project changes, markers for change color nav changes
+    }, 500)
   };
   
   const showDetails = (id) => {
@@ -271,148 +280,8 @@ const init = () => {
         { maxHeight: '0px' }
       ], projectDetailsAnimationOptions
     );
+    
   }
-  
-  // =====================
-  // Carousel
-  // =====================
-  
-  const nextKochi = document.querySelector('.kochi-carousel-button-next');
-  const prevKochi = document.querySelector('.kochi-carousel-button-prev');
-  const nextMosch = document.querySelector('.mosch-carousel-button-next');
-  const prevMosch = document.querySelector('.mosch-carousel-button-prev');
-  const nextBike = document.querySelector('.bike-carousel-button-next');
-  const prevBike = document.querySelector('.bike-carousel-button-prev');
-  const nextLast = document.querySelector('.last-carousel-button-next');
-  const prevLast = document.querySelector('.last-carousel-button-prev');
-  
-  
-  const moveCarousel = (itemClassName, direction) => {
-      var items = document.getElementsByClassName(itemClassName);
-      totalItems = items.length,
-      slide = 0,
-      moving = true,
-      direct = direction;
-  
-      function setActiveSlide(items){
-          Array.from(items).forEach((item, index) => {
-              if (item.className.includes('active')){
-                 slide = index;
-              }
-          })};
-  
-      function moveNext() {
-          // Check if moving
-       if (!moving) {
-         // If it's the last slide, reset to 0, else +1
-         if (slide === (totalItems - 1)) {
-           slide = 0;
-         } else {
-           slide++;
-         }
-         // Move carousel to updated slide
-         moveCarouselTo(slide);
-       }
-      }
-  
-        // Previous navigation handler
-    function movePrev() {
-      // Check if moving
-      if (!moving) {
-        // If it's the first slide, set as the last slide, else -1
-        if (slide === 0) {
-          slide = (totalItems - 1);
-        } else {
-          slide--;
-        }
-              
-        // Move carousel to updated slide
-        moveCarouselTo(slide);
-      }
-    }
-  
-        function disableInteraction() {
-      // Set 'moving' to true for the same duration as our transition.
-      // (0.5s = 500ms)
-      moving = true;
-      // setTimeout runs its function once after the given time
-      setTimeout(function(){
-        moving = false
-      }, 500);
-    }
-  
-    function moveCarouselTo(slide) {
-      // Check if carousel is moving, if not, allow interaction
-      if(!moving) {
-        // temporarily disable interactivity
-        disableInteraction();
-        // Update the "old" adjacent slides with "new" ones
-        var newPrevious = slide - 1,
-            newNext = slide + 1,
-            oldPrevious = slide - 2,
-            oldNext = slide + 2;
-        // Test if carousel has more than three items
-        if ((totalItems - 1) > 3) {
-          // Checks and updates if the new slides are out of bounds
-          if (newPrevious <= 0) {
-            oldPrevious = (totalItems - 1);
-          } else if (newNext >= (totalItems - 1)){
-            oldNext = 0;
-          }
-          // Checks and updates if slide is at the beginning/end
-          if (slide === 0) {
-            newPrevious = (totalItems - 1);
-            oldPrevious = (totalItems - 2);
-            oldNext = (slide + 1);
-          } else if (slide === (totalItems -1)) {
-            newPrevious = (slide - 1);
-            newNext = 0;
-            oldNext = 1;
-          }
-          // Now we've worked out where we are and where we're going, 
-          // by adding/removing classes we'll trigger the transitions.
-          // Reset old next/prev elements to default classes
-          items[oldPrevious].className = "carousel-photo " + itemClassName;
-          items[oldNext].className = "carousel-photo " + itemClassName;
-          // Add new classes
-          items[newPrevious].className = "carousel-photo " + itemClassName + " prev";
-          items[slide].className = "carousel-photo " + itemClassName + " active";
-          items[newNext].className = "carousel-photo " + itemClassName + " next";
-        }
-      }
-    }
-  
-      function checkDirection() {
-          if(direction === "forward"){
-           moveNext()
-          }else{
-          movePrev()
-      }
-  }
-          
-    function initCarousel() {
-      moving = false;
-      setActiveSlide(items);
-      checkDirection();
-     }
-  
-   initCarousel();
-  
-  }
-  
-  
-  nextKochi.addEventListener("click", () => moveCarousel('carousel-photo-kochi', 'forward'));
-  prevKochi.addEventListener("click", () => moveCarousel('carousel-photo-kochi', 'backward'));
-  
-  nextMosch.addEventListener("click", () => moveCarousel('carousel-photo-mosch', 'forward'));
-  prevMosch.addEventListener("click", () => moveCarousel('carousel-photo-mosch', 'backward'));
-  
-  nextBike.addEventListener("click", () => moveCarousel('carousel-photo-bike', 'forward'));
-  prevBike.addEventListener("click", () => moveCarousel('carousel-photo-bike', 'backward'));
-  
-  nextLast.addEventListener("click", () => moveCarousel('carousel-photo-last', 'forward'));
-  prevLast.addEventListener("click", () => moveCarousel('carousel-photo-last', 'backward'));
-  
   
   // =====================
   // Hover Contact
