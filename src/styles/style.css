@@ -147,8 +147,6 @@ nav {
   position: fixed;
   width: 100vw;
   z-index: 5;
-  -webkit-animation: fadeinnav 1s  4s both;
-          animation: fadeinnav 1s  4s both;
   color: #fff;
 }
 
@@ -370,8 +368,6 @@ nav .hb-menu .nav-hb ul .line-hb-menu {
   line-height: 150px;
   letter-spacing: 10px;
   font-family: system-ui;
-  -webkit-animation: fadeinnav 1s  4s both;
-          animation: fadeinnav 1s  4s both;
 }
 
 @media (max-width: 480px) {
@@ -393,8 +389,6 @@ nav .hb-menu .nav-hb ul .line-hb-menu {
 
 .banner img {
   width: 100%;
-  -webkit-animation: fadeinnav 1s 4s both;
-          animation: fadeinnav 1s 4s both;
 }
 
 .section-about {

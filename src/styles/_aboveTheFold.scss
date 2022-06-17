@@ -20,7 +20,7 @@
         line-height: 150px;
         letter-spacing: 10px;
         font-family: system-ui;
-        animation: fadeinnav 1s  4s both;
+        // animation: fadeinnav 1s  3s both;
         @media (max-width: $breakpointMobile) {
             // align-items: flex-start;
             letter-spacing: normal;
@@ -35,7 +35,7 @@
     }
     img{
         width: 100%;
-        animation: fadeinnav 1s 4s both;
+        // animation: fadeinnav 1s 3s both;
         // filter: grayscale(100%);
         // filter: url('https://grainy-gradients.vercel.app/noise.svg');
     }

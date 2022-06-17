@@ -34,13 +34,11 @@ const init = () => {
   })
   
   gsap.to(".field-two", {
-    delay: 2.8, 
-    duration: 1,
+    delay: 2.5, 
     clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
   })
   gsap.to(".start", {
-    delay: 2.8, 
-    duration: 1,
+    delay: 2.5,
     height: "0vh"
   })
   }
@@ -126,7 +124,7 @@ const init = () => {
 
   setTimeout(() => {
     ScrollTrigger.refresh();
-  }, 5000)
+  }, 3000)
 
   // =====================
   // Hamburger menu

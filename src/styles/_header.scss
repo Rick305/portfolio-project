@@ -55,7 +55,7 @@ nav{
     position: fixed;
     width: 100vw;
     z-index:5;
-    animation: fadeinnav 1s  4s both;
+    // animation: fadeinnav 1s  3s both;
     color: #fff;
     @media (max-width: $breakpointMobile) {
         height: 65px;
