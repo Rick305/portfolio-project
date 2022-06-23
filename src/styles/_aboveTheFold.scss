@@ -1,6 +1,5 @@
 
 .banner{
-    // filter: url(https://grainy-gradients.vercel.app/noise.svg);
     height: 100vh; 
     display: flex;
     justify-content: space-between;
@@ -13,31 +12,33 @@
         padding: 99px 47px 11px 20px;
         align-items: flex-start;
   }
+  .banner-text{
+    opacity: 0;
+    transform: translateY(50px);
+  }
     p{
         text-shadow: -5px 4px 0px #f278b6cc;
-        font-size: calc(35px + (100 - 35) * ((100vw - 300px) / (1600 - 300)));
+        font-size: calc(55px + (100 - 55) * ((100vw - 300px) / (1600 - 300)));
         font-weight: 900;
         line-height: 150px;
         letter-spacing: 10px;
         font-family: system-ui;
-        // animation: fadeinnav 1s  3s both;
         @media (max-width: $breakpointMobile) {
-            // align-items: flex-start;
             letter-spacing: normal;
+            line-height: 90px;
         }
     }
     .banner-img{
         max-width: 500px;
         overflow: hidden;
+        opacity: 0;
+        transform: translateY(50px);
         @media(max-width: $breakpointMobile){
             height: auto;
         }
     }
     img{
         width: 100%;
-        // animation: fadeinnav 1s 3s both;
-        // filter: grayscale(100%);
-        // filter: url('https://grainy-gradients.vercel.app/noise.svg');
     }
 }
 

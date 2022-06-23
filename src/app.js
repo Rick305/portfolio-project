@@ -1,50 +1,64 @@
 // =====================
 // Start
 // =====================
-// import { gsap, ScrollTrigger, MotionPathPlugin } from "gsap";
 
 const init = () => {
-    gsap.to(".field-one", {
+    var tl = gsap.timeline({onComplete: setMarker});
+    tl
+  .to(".field-one", {
     duration: .5, 
-    delay: .5, 
     clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
     ease: Power2
-    }
-  ) 
-  
-  gsap.to(".start-title", {
-    delay: 1.3,
-    duration: 1,
+  }, ".5") 
+  .to(".start", {
+    backgroundColor: "#4941e5"
+  },">")
+  .to(".start-title", {
+    duration: .5,
     y: 0,
-    ease: "power4"
-  })
-  
-  gsap.to(".field-one", {
+    ease: Power4
+  }, ">+=.3")
+  .to(".field-one", {
     duration: .5, 
-    delay: 2.3, 
     clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
     ease: Power2
-  })
-  
-  gsap.to(".field-two", {
+  }, ">+=.5")
+  .to(".field-two", {
     duration: .5, 
-    delay: 2.3, 
     clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
     ease: Power2
-  })
-  
-  gsap.to(".field-two", {
-    delay: 2.5, 
+  }, "<")
+  .to(".field-two", {
     clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-  })
-  gsap.to(".start", {
-    delay: 2.5,
-    height: "0vh"
-  })
+  }, ">")
+  .to(".start", {
+    height: "0vh",
+  }, "<")
+  .to("nav", {
+    duration: 1,
+    opacity: 1,
+    y: "0px",
+    ease: "power2.in"
+  }, "<")
+  .to(".banner-text", {
+    duration: 1,
+    opacity: 1,
+    y: "0px",
+    ease: "power2.in"
+  }, "<")
+  .to(".banner-img", {
+    duration: 1,
+    opacity: 1,
+    y: "0px",
+    ease: "power1.in"
+  }, "<")
+
+  }
+  function setMarker(){
+    ScrollTrigger.refresh();
   }
   
-  
-  window.addEventListener("load", init)
+  init();
   
   // =====================
   // Hover H1
@@ -115,16 +129,10 @@ const init = () => {
           start: "-50px top",
           endTrigger: ".contact",
           end: `-50px top`,
-          // end: `${sectionProject.offsetHeight + 120}px top`,
           onToggle: () => changeColorNavbar(),
           // markers: true
           }
       })
-
-
-  setTimeout(() => {
-    ScrollTrigger.refresh();
-  }, 3000)
 
   // =====================
   // Hamburger menu

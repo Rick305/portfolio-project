@@ -106,32 +106,6 @@
   }
 }
 
-@-webkit-keyframes fadeinnav {
-  0% {
-    -webkit-transform: translateY(50px);
-            transform: translateY(50px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeinnav {
-  0% {
-    -webkit-transform: translateY(50px);
-            transform: translateY(50px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-    opacity: 1;
-  }
-}
-
 nav {
   margin-top: 20px;
   height: 50px;
@@ -148,6 +122,9 @@ nav {
   width: 100vw;
   z-index: 5;
   color: #fff;
+  opacity: 0;
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
 }
 
 @media (max-width: 480px) {
@@ -157,7 +134,7 @@ nav {
 }
 
 nav .logo {
-  cursor: pointer;
+  cursor: default;
   position: relative;
 }
 
@@ -263,7 +240,7 @@ nav .hb-menu .nav-hb {
       -ms-flex-align: center;
           align-items: center;
   position: absolute;
-  top: 0;
+  top: -20px;
   right: 0;
   min-height: 100vh;
   width: 100vw;
@@ -361,9 +338,15 @@ nav .hb-menu .nav-hb ul .line-hb-menu {
   }
 }
 
+.banner .banner-text {
+  opacity: 0;
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+}
+
 .banner p {
   text-shadow: -5px 4px 0px #f278b6cc;
-  font-size: calc(35px + (100 - 35) * ((100vw - 300px) / (1600 - 300)));
+  font-size: calc(55px + (100 - 55) * ((100vw - 300px) / (1600 - 300)));
   font-weight: 900;
   line-height: 150px;
   letter-spacing: 10px;
@@ -373,12 +356,16 @@ nav .hb-menu .nav-hb ul .line-hb-menu {
 @media (max-width: 480px) {
   .banner p {
     letter-spacing: normal;
+    line-height: 90px;
   }
 }
 
 .banner .banner-img {
   max-width: 500px;
   overflow: hidden;
+  opacity: 0;
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
 }
 
 @media (max-width: 480px) {
@@ -477,7 +464,8 @@ nav .hb-menu .nav-hb ul .line-hb-menu {
 
 .section-project {
   max-width: 1980px;
-  margin: 3rem 0 8rem 0;
+  padding: 3rem 0 8rem 0;
+  background-color: #fff;
 }
 
 .section-project h2 {

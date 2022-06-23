@@ -3,7 +3,6 @@
     padding: 130px 50px;
     display: flex;
     justify-content: space-around;
-    // width: 100%;
     background-color: $primaryColorPink;
     color: $textColorWhite;
     overflow: hidden;
@@ -69,15 +68,4 @@
         
     }
 }
-
-
-// @keyframes sun {
-//     from{
-//         transform: translate(0px,-380px);
-
-//     }
-//     to {
-//       transform: translate(140px,1500px);
-//     }
-//   }
   
